@@ -37,9 +37,37 @@ $hotels = [
     'distance_to_center' => 50
   ],
 ];
+
+if (isset($_GET['parking'])) {
+  $parkingFilter = $_GET['parking'];
+
+  if ($parkingFilter === 'true') {
+    $hotels = array_filter($hotels, function ($hotel) {
+      return $hotel['parking'] === true;
+    });
+  } elseif ($parkingFilter === 'false') {
+    $hotels = array_filter($hotels, function ($hotel) {
+      return $hotel['parking'] === false;
+    });
+  }
+}
 ?>
 
 <?php include './components/header.php'; ?>
+
+<form method="GET">
+  <div class="form-group">
+    <label for="parkingFilter">Filtra per Parcheggio</label>
+    <select name="parking" id="parkingFilter" class="form-control">
+      <option value="all">Mostra Tutti</option>
+      <option value="true">Con Parcheggio</option>
+      <option value="false">Senza Parcheggio</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Filtra</button>
+</form>
+
 <table class="table">
   <thead>
     <tr>
