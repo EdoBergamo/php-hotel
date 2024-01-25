@@ -100,13 +100,19 @@ if (isset($_GET['rating'])) {
         <td><?php echo $hotel['parking'] ? 'Disponibile' : 'Non disponibile' ?></td>
         <td>
           <?php
-            for ($i = 1; $i <= 5; $i++) {
-              if ($i <= $hotel['vote']) {
-                echo '<i class="fa-solid fa-star text-warning"></i>';
-              } else {
-                echo '<i class="fa-regular fa-star text-warning"></i>';
+            /*
+              for ($i = 1; $i <= 5; $i++) {
+                if ($i <= $hotel['vote']) {
+                  echo '<i class="fa-solid fa-star text-warning"></i>';
+                } else {
+                  echo '<i class="fa-regular fa-star text-warning"></i>';
+                }
               }
-            }
+
+             * @credits: https://www.php.net/manual/en/function.str-repeat.php
+             */
+
+             echo str_repeat('<i class="fa-solid fa-star text-warning"></i>', $hotel['vote']) . str_repeat('<i class="fa-regular fa-star text-warning"></i>', 5 - $hotel['vote']);
           ?>
         </td>
         <td><?php echo $hotel['distance_to_center'] ?> km</td>
