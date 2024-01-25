@@ -68,14 +68,14 @@ if (isset($_GET['parking'])) {
   <button type="submit" class="btn btn-primary">Filtra</button>
 </form>
 
-<table class="table">
-  <thead>
+<table class="table table-striped table-bordered mt-4">
+  <thead class="thead-dark">
     <tr>
-      <th>Nome</th>
-      <th>Descrizione</th>
-      <th>Parcheggio</th>
-      <th>Voto</th>
-      <th>Distanza dal centro</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrizione</th>
+      <th scope="col">Parcheggio</th>
+      <th scope="col">Voto</th>
+      <th scope="col">Distanza dal centro</th>
     </tr>
   </thead>
   <tbody>
