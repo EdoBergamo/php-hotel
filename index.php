@@ -51,6 +51,13 @@ if (isset($_GET['parking'])) {
     });
   }
 }
+
+if (isset($_GET['rating'])) {
+  $ratingFilter = $_GET['rating'];
+  $hotels = array_filter($hotels, function ($hotel) use ($ratingFilter) {
+    return $hotel['vote'] >= $ratingFilter;
+  });
+}
 ?>
 
 <?php include './components/header.php'; ?>
@@ -63,6 +70,11 @@ if (isset($_GET['parking'])) {
       <option value="true">Con Parcheggio</option>
       <option value="false">Senza Parcheggio</option>
     </select>
+  </div>
+
+  <div class="form-group">
+    <label for="parkingFilter">Filtra per Voto</label>
+    <input type="number" name="rating" id="ratingFilter" class="form-control" min="1" max="5" placeholder="Inserisci il voto minimo">
   </div>
 
   <button type="submit" class="btn btn-primary">Filtra</button>
