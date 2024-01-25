@@ -63,18 +63,20 @@ if (isset($_GET['rating'])) {
 <?php include './components/header.php'; ?>
 
 <form method="GET">
-  <div class="form-group">
-    <label for="parkingFilter">Filtra per Parcheggio</label>
-    <select name="parking" id="parkingFilter" class="form-control">
-      <option value="all">Mostra Tutti</option>
-      <option value="true">Con Parcheggio</option>
-      <option value="false">Senza Parcheggio</option>
-    </select>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="parkingFilter">Filtra per Parcheggio</label>
+      <select name="parking" id="parkingFilter" class="form-control">
+        <option value="all">Mostra Tutti</option>
+        <option value="true">Con Parcheggio</option>
+        <option value="false">Senza Parcheggio</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="parkingFilter">Filtra per Voto</label>
-    <input type="number" name="rating" id="ratingFilter" class="form-control" min="1" max="5" placeholder="Inserisci il voto minimo">
+    <div class="form-group col-md-6">
+      <label for="parkingFilter">Filtra per Voto</label>
+      <input type="number" name="rating" id="ratingFilter" class="form-control" min="1" max="5" placeholder="Inserisci il voto minimo">
+    </div>
   </div>
 
   <button type="submit" class="btn btn-primary">Filtra</button>
